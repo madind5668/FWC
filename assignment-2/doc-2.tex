@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{karnaugh-map}
+\usepackage[framemethod=tikz]{mdframed}
+\begin{document}
+\raggedright{\includegraphics[scale=0.07]{logo.jpg}}\hspace{12.425cm}\raggedleft FWC22025\vspace{2mm}
+\\
+\centering\Large\textbf{ASSIGNMENT-1}\vspace{5mm}
+
+
+\begin{multicols}{2}
+\centering \large\textsc{C}\footnotesize\textsc{ONTENTS}\vspace{5mm}
+\\
+\raggedright\large\textbf{1\hspace{1cm}Components}\hspace{4.18cm}1\vspace{5mm}\\
+\raggedright\large\textbf{2\hspace{1cm}Boolean Laws}\hspace{3.85cm}1\vspace{5mm}\\
+\raggedright\large\textbf{3\hspace{1cm}Karnaugh Map}\hspace{3.5cm}1\vspace{5mm}\\
+
+
+\raggedright\hspace{1cm}\normalsize\textsl{Abstract---}\normalsize\textbf{Here we are going to verify the following using Boolean Laws.}\vspace{1mm}\\
+\raggedright\small\textbf{X+Y' = X.Y+X.Y'+X'.Y'}\vspace{5mm}\\
+
+
+\centering \large\textsc{1  C}\footnotesize\textsc{OMPONENTS}\vspace{5mm}\\
+\begin{center}
+    \label{tab:truthtable}
+    \setlength{\arrayrulewidth}{0.2mm}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{2}
+    \begin{tabular}{|c|c|c|}
+    \hline % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \large\textbf{S.No} & \large\textbf{Component} & \large\textbf{Number}\\
+      \hline
+	\large 1. & \large Arduino & \large 1 \\
+	\large 2. & \large Bread Board & \large 1 \\
+	\large 3. & \large Jumer Wires(M-M) & \large 5 \\
+	\large 4. & \large LED & \large 1 \\
+	\large 5. & \large Resistor(150 ohm) & \large 1 \\ 
+      \hline
+   \end{tabular}
+ \end{center}\vspace{5mm} 
+
+
+\centering \large\textsc{2  B}\footnotesize\textsc{OOLEAN }\large\textsc{L}\footnotesize\textsc{AWS}\vspace{5mm}\\
+\raggedright\large{1. Using Boolean logic,\\ \centering\large\textsl{A+A' = 1\\ \centering\large\textsl{A+A'.B = A+B}\\}}
+\raggedright\large{The expression given can be minimized as,}
+\large{X.Y+X.Y'+X'.Y' = X.(Y+Y')+X'.Y'\\ \centering\hspace{2.9cm}\large{= X+X'.Y'}\\ \centering\hspace{2.3cm}\large{= X+Y'}\\}
+\raggedright\large{2. The corresponding truth table is available in Table 0}\vspace{5mm}\\
+\centering\begin{tabular}{|c|c|c|c|}
+\hline
+X&Y&(X+Y')&(X.Y+X.Y'+X'.Y')\\
+\hline
+0&0&1&1\\
+0&1&0&0\\
+1&0&1&1\\
+1&1&1&1\\
+\hline
+\end{tabular}\vspace{5mm}\\
+\centering\large{Table 0}\vspace{5mm}\\
+
+
+\centering \large\textsc{3  K}\footnotesize\textsc{ARNAUGH }\large\textsc{M}\footnotesize\textsc{APS}\vspace{5mm}\\
+\raggedright\large{1. Using Boolean logic, output in Table 0 can be in terms of inputs X and Y as X.Y+X.Y'+X'.Y' }\\
+\raggedright\large{2. The expression can be minimized using K-map.The implicants in boxes 0,2 result in Y' and the implicants in boxes 2,3 result in X.Thus, after minimization it can be expressed as X+Y'}\vspace{2mm}\\
+\centering\begin{karnaugh-map}[2][2][1][$Y$][$X$]
+    \maxterms{1}
+    \minterms{0,2,3}
+    \implicant{0}{2}
+    \implicant{2}{3}
+\end{karnaugh-map}\\
+\raggedright\large{3.Connect inputs to arduino 2,3 digital pins and connect the output digital pin declared in the source code link below to one end of the resistor and connect the resistor's other end to the LED.}\vspace{2mm}
+
+\begin{mdframed}
+\raggedright\large{https://github.com/madind5668 \\ /FWC/blob/main/assigment-2/codes/main.asm}
+\end{mdframed}
+
+\end{multicols}
+\end{document}
