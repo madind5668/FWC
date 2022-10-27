@@ -1,0 +1,119 @@
+\documentclass[a4,10pt]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsmath,bm}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{karnaugh-map}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{makecell}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\begin{document}
+\raggedright{\includegraphics[scale=0.07]{logo.jpg}}\hspace{12.425cm}\raggedleft FWC22025\vspace{2mm}\\
+\centering\Large\textbf{OPTIMIZATION-ADVANCED}\vspace{5mm}\\
+\begin{multicols}{2}
+\centering \large\textsc{C}\footnotesize\textsc{ONTENTS}\vspace{5mm}\\
+\raggedright\large\textbf{1\hspace{1cm}Problem}\hspace{5.2cm}1\vspace{5mm}\\
+\raggedright\large\textbf{2\hspace{1cm}Solution}\hspace{5.25cm}1\vspace{5mm}\\
+\centering \large\textsc{1  P}\footnotesize\textsc{ROBLEM}\vspace{5mm}\\
+Show that the rectangle of maximum area that can be inscribed in a circle is a square.\vspace{5mm}\\
+\centering \large\textsc{2  S}\footnotesize\textsc{OLUTION}\vspace{5mm}\\
+\raggedright Let the radius of circle be r = 5cm with center as origin and let the coordinates of the rectangle be A,B,C and D such that,
+	\begin{gather*}
+		\vec{A} = \myvec{rcos(\theta_1)\\rsin(\theta_1)}\hspace{2mm},\hspace{2mm}\vec{B} = \myvec{-rcos(\theta_2)\\rsin(\theta_2)}\hspace{2mm},\hspace{2mm}\vec{C} = -\vec{A}\hspace{2mm},\hspace{2mm}\vec{D} = -\vec{B}\\
+		\theta_1 = 45\degree\\
+		\theta_2 = 60\degree
+	\end{gather*}
+\raggedright The equation of circle is represented as,
+	\begin{gather}
+		\vec{x^T}\vec{x} + f = 0
+	\end{gather}
+	\centering{where, f  =-25}\vspace{2mm}
+\raggedright As the coordinates of rectangle lies on circumference of  circle, they satisfy the above equation.\\
+	\begin{gather*}
+		\vec{A^T}\vec{A} + f = \myvec{\frac{5}{\sqrt{2}} & \frac{5}{\sqrt{2}}}\myvec{\frac{5}{\sqrt{2}} \\ \frac{5}{\sqrt{2}}} -25\\
+		 = 25 -25 \\
+	         = 0
+	\end{gather*}
+	\begin{gather*}
+		\vec{B^T}\vec{B} + f = \myvec{\frac{5}{2} & \frac{5\sqrt{3}}{2}}\myvec{\frac{5}{2} \\ \frac{5\sqrt{3}}{2}} -25\\                                                                                                        = \frac{25}{4} + \frac{75}{4} -25 \\
+		= 0
+          \end{gather*}
+	  \raggedright{Similarly, C and D also satisfies the above equation}\vspace{2mm}
+	\raggedright{And,}
+	\begin{gather}
+		\vec{(A-B)^T}\vec{(C-B)} = \myvec{\frac{5}{\sqrt{2}}-\frac{5}{2} & \frac{5}{\sqrt{2}}-\frac{5\sqrt{3}}{2}}\myvec{\frac{-5}{\sqrt{2}}-\frac{-5}{2} \\ \frac{-5}{\sqrt{2}}-\frac{-5\sqrt{3}}{2}}\\
+		\implies{\vec{(A-B)^T}\vec{(C-B)} = 0}
+	\end{gather}
+	\raggedright{And,}
+	\begin{align*}
+		\vec{C-B} = \myvec{\frac{-5}{\sqrt{2}} \\ \frac{-5}{\sqrt{2}}} - \myvec{\frac{5}{2} \\ \frac{5\sqrt{3}}{2}}\\
+		\implies{\vec{C-B} = \myvec{\frac{-5}{\sqrt{2}}-\frac{5}{2} \\ \frac{-5}{\sqrt{2}}-\frac{5\sqrt{3}}{2}}}\\
+		\vec{D-A} = \myvec{\frac{-5}{2} \\ \frac{-5\sqrt{3}}{2}} - \myvec{\frac{5}{\sqrt{2}} \\ \frac{5}{\sqrt{2}}}\\
+		\implies{\vec{D-A} = \myvec{\frac{-5}{2}-\frac{5}{\sqrt{2}} \\ \frac{-5\sqrt{3}}{2}-\frac{-5}{\sqrt{2}}}}
+	\end{align*}
+	\raggedright{Hence,}
+	\begin{gather}
+		\vec{(C-B)} = \vec{(D-A)}
+	\end{gather}
+	\raggedright{As the diagonals of the rectangle bisect each other, let the intersection point of the diagonals be point P, such that it is equidistant from the coordinates A,B,C and D.}
+	\begin{gather*}
+		\vec{P} = \frac{\vec{(A+C)}}{2}\\
+		\vec{P} = \myvec{0\\0}
+	\end{gather*}
+	\raggedright{Hence, point P is center of circle.}
+	\begin{gather*}
+ \| P-A \| = \| P-C \| = 5
+	\end{gather*}
+	\raggedright{Hence, the distance from P to A and C is equal to the radius.}\\
+	\raggedright{Therefore, the diagonal of the rectangle is equal to the diameter of the circle.}\vspace{10mm}\\
+	\raggedright{Let the sides of the rectangle be x and y, by pythagoras theorem,} 
+	\begin{gather}
+	x^2 + y^2 = (2r)^2\\
+		\implies{y = \sqrt{4r^2 - x^2}}
+	\end{gather}
+	Area of rectangle = xy\vspace{2mm}\\
+	Area of rectangle = x$\sqrt{4r^2-x^r}$\vspace{2mm}\\
+Solving using Gradient ascent, to get maximum area
+\begin{align*}
+x_{n+1} &= x_n + \alpha \nabla f(x_n) \\
+	\implies x_{n+1} &= x_n + \alpha \nabla f(x\sqrt{4r^2-x^2})
+\end{align*}
+Taking $x_0 = 1, \alpha = 0.001$ and $precision = 0.00000001$, values obtained using python are:
+\begin{align}
+\boxed{\text{Maxima} = 49.99} \\
+\boxed{\text{Maxima Point} = 7.07}
+\end{align}
+	As,the maximum point is x, when substituted in eq(2), we get\\
+	\centering y = 7.07\\
+Hence, the sides of the rectangle are equal and forms a square of maximum area.
+\vspace{5mm}\\
+\begin{mdframed}
+\raggedright\large{https://github.com/madind5668/FWC\\/blob/main/optimization/advanced\\/codes/main.py}
+\end{mdframed}
+\end{multicols}
+\end{document}
+
